@@ -253,100 +253,128 @@ h1 {
 
 /* Serial plate preview */
 
-.clickable-preview {
-  cursor: zoom-in;
-}
-
 .plate-scroll-area {
   width: 100%;
   overflow-x: auto;
-  padding: 10px 0 6px;
+  overflow-y: hidden;
+  padding: 10px 0 8px;
 }
 
 .serial-plate {
   display: grid;
-  grid-template-columns: 280px 92px 210px 54px 112px 190px;
+  grid-template-columns:
+    355px   /* main code */
+    122px   /* depot */
+    255px   /* AC/BK block */
+    76px    /* MD / PA / PA YAD labels */
+    136px   /* date values */
+    170px;  /* PEM area moved left / tighter */
   align-items: center;
-  column-gap: 10px;
+  column-gap: 8px;
 
-  width: 1010px;
-  min-width: 1010px;
-  height: 64px;
+  width: 1220px;
+  min-width: 1220px;
+  max-width: 1220px;
+  height: 78px;
+  padding: 7px 14px;
+  margin: 0;
 
-  padding: 5px 12px;
   background: #000000;
   color: #ffffff;
   border: 1px solid #111111;
   border-radius: 0;
+  box-sizing: border-box;
 
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1;
 }
 
+/* Main serial code: fixed position blocks */
 .plate-main-number {
   display: grid;
-  grid-template-columns: repeat(4, auto);
-  justify-content: start;
+  grid-template-columns: 145px 50px 78px 78px;
   align-items: center;
-  column-gap: 12px;
+  justify-content: start;
+  width: 355px;
 
   font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
-  font-size: 3.35rem;
+  font-size: 4rem;
   font-weight: 900;
-  letter-spacing: -0.075em;
+  letter-spacing: 0;
   white-space: nowrap;
 }
 
-.plate-depot-code {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.72rem;
-  font-weight: 900;
-  letter-spacing: -0.07em;
-  white-space: nowrap;
+.plate-main-number span {
+  display: block;
   text-align: center;
 }
 
-.plate-system-info {
-  display: grid;
-  gap: 1px;
+/* Depot code: fixed width, supports 2–4 letters */
+.plate-depot-code {
+  display: block;
+  width: 122px;
 
-  font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
-  font-size: 1.48rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
   font-weight: 900;
-  letter-spacing: -0.055em;
-  line-height: 0.94;
+  letter-spacing: 0;
   white-space: nowrap;
+  text-align: left;
 }
 
+/* AC/BK block */
+.plate-system-info {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  gap: 1px;
+  width: 255px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.72rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* MD / PA / PA YAD */
 .plate-date-labels {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  gap: 1px;
+  align-items: center;
+  width: 76px;
 
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.98rem;
   font-weight: 900;
   line-height: 1;
   white-space: nowrap;
+  text-align: left;
 }
 
 .plate-date-values {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  gap: 1px;
+  align-items: center;
+  width: 136px;
 
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.98rem;
   font-weight: 900;
   line-height: 1;
   white-space: nowrap;
+  text-align: left;
 }
 
+/* PEM area */
 .plate-pem-area {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 12px;
+  width: 190px;
 }
 
 .pem-block {
@@ -354,7 +382,7 @@ h1 {
   gap: 2px;
 
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.56rem;
+  font-size: 0.58rem;
   font-weight: 900;
   color: #ffffff;
   line-height: 1;
@@ -364,11 +392,11 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 6px;
+  gap: 4px;
 }
 
 .pem-title-row strong {
-  font-size: 0.52rem;
+  font-size: 0.56rem;
   font-weight: 900;
 }
 

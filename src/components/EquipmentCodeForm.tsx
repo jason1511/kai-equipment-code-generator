@@ -127,8 +127,7 @@ function EquipmentCodeForm() {
 
       const dataUrl = await toPng(plateRef.current, {
         cacheBust: true,
-        pixelRatio: 2,
-        backgroundColor: "transparent",
+        pixelRatio: 1,
       });
 
       const link = document.createElement("a");
