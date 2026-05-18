@@ -49,7 +49,6 @@ function LocomotivePlateTool() {
       const dataUrl = await toPng(locomotivePlateRef.current, {
         cacheBust: true,
         pixelRatio: 2,
-        backgroundColor: "transparent",
       });
 
       const link = document.createElement("a");

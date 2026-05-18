@@ -31,7 +31,6 @@ function TrainmarkTool() {
       const dataUrl = await toPng(trainmarkRef.current, {
         cacheBust: true,
         pixelRatio: 3,
-        backgroundColor: "transparent",
       });
 
       const link = document.createElement("a");

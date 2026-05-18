@@ -56,7 +56,6 @@ function OldLocomotivePlateTool() {
       const dataUrl = await toPng(plateRef.current, {
         cacheBust: true,
         pixelRatio: 2,
-        backgroundColor: "transparent",
       });
 
       const link = document.createElement("a");

@@ -1,26 +1,25 @@
 import type { RefObject } from "react";
-import type { GeneratedOldLocomotivePlate } from "../types/oldLocomotive";
+import type { GeneratedLocomotivePlate } from "../types/locomotive";
 
-type OldLocomotivePlatePreviewProps = {
-  plate: GeneratedOldLocomotivePlate;
+type LocomotivePlatePreviewProps = {
+  plate: GeneratedLocomotivePlate;
   exportRef?: RefObject<HTMLDivElement | null>;
 };
 
-function OldLocomotivePlatePreview({
+function LocomotivePlatePreview({
   plate,
   exportRef,
-}: OldLocomotivePlatePreviewProps) {
+}: LocomotivePlatePreviewProps) {
   return (
-    <div className="old-locomotive-plate-scroll-area">
-      <div ref={exportRef} className="old-locomotive-plate-shell">
-        <div className="old-locomotive-plate-inner">
-          <span className="old-locomotive-axle-code">{plate.axleCode}</span>
-          <span className="old-locomotive-series-code">{plate.seriesCode}</span>
-          <span className="old-locomotive-unit-code">{plate.unitNumberText}</span>
-        </div>
+    <div className="locomotive-plate-scroll-area">
+      <div ref={exportRef} className="locomotive-plate">
+        <span className="locomotive-axle-code">{plate.axleCode}</span>
+        <span className="locomotive-series-code">{plate.seriesCode}</span>
+        <span className="locomotive-year-code">{plate.productionYearShort}</span>
+        <span className="locomotive-unit-code">{plate.unitNumberText}</span>
       </div>
     </div>
   );
 }
 
-export default OldLocomotivePlatePreview;
+export default LocomotivePlatePreview;
