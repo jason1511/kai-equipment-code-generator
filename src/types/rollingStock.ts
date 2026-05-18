@@ -52,6 +52,13 @@ export type GeneratedEquipmentCode = {
   unitNumber: string;
   depotCode: string;
 };
+export type PlateInput = EquipmentCodeInput & {
+  electricalSystem: string;
+  emptyWeightKg: number;
+  serviceStartDate: string;
+  lastMaintenanceDate: string;
+  nextMaintenanceDate: string;
+};
 export type GeneratedPlate = GeneratedEquipmentCode & {
   electricalSystem: string;
   emptyWeightKg: number;
