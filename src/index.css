@@ -1,0 +1,654 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111827;
+  background: #f3f4f6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: "NishaLocoplate";
+  src: url("./assets/fonts/NishaLocoplate-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* Page layout */
+
+.app-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.page-header {
+  max-width: 760px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2563eb;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.intro {
+  margin: 20px 0 0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4b5563;
+}
+/* Homepage sections */
+
+.home-section {
+  max-width: 820px;
+  padding: 24px 0 8px;
+}
+
+.tool-overview-section,
+.tool-section {
+  margin-top: 40px;
+}
+
+.section-heading {
+  max-width: 820px;
+  margin-bottom: 20px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.section-heading p {
+  margin: 12px 0 0;
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+.tool-switcher {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.tool-tab {
+  display: grid;
+  gap: 8px;
+  min-height: 120px;
+  padding: 22px;
+  border: 1px solid #d1d5db;
+  border-radius: 24px;
+  background: #ffffff;
+  color: #111827;
+  text-align: left;
+  font-size: 1.3rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+.tool-tab span {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.tool-tab:hover {
+  border-color: #111827;
+}
+
+.active-tool-tab {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
+
+.active-tool-tab span {
+  color: #cbd5e1;
+}
+
+.placeholder-card {
+  padding: 28px;
+  border: 1px dashed #9ca3af;
+  border-radius: 24px;
+  background: #ffffff;
+  color: #374151;
+}
+
+.placeholder-card h3 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.placeholder-card p {
+  margin: 12px 0 0;
+  line-height: 1.7;
+}
+/* Generator layout */
+
+.generator-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+  gap: 24px;
+  margin-top: 40px;
+  align-items: start;
+}
+
+.generator-card,
+.result-card {
+  padding: 24px;
+  border: 1px solid #d1d5db;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+.result-card {
+  grid-column: 1 / -1;
+}
+
+.form-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field span {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #374151;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #111827;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: 3px solid rgba(37, 99, 235, 0.18);
+  border-color: #2563eb;
+}
+
+.field input:disabled {
+  background: #f3f4f6;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+/* Result header */
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.result-label {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.download-button {
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 16px;
+  background: #111827;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.download-button:hover {
+  background: #1f2937;
+}
+
+.download-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+/* Serial plate preview */
+
+.clickable-preview {
+  cursor: zoom-in;
+}
+
+.plate-scroll-area {
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px 0 6px;
+}
+
+.serial-plate {
+  display: grid;
+  grid-template-columns: 280px 92px 210px 54px 112px 190px;
+  align-items: center;
+  column-gap: 10px;
+
+  width: 1010px;
+  min-width: 1010px;
+  height: 64px;
+
+  padding: 5px 12px;
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #111111;
+  border-radius: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1;
+}
+
+.plate-main-number {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  align-items: center;
+  column-gap: 12px;
+
+  font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+  font-size: 3.35rem;
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  white-space: nowrap;
+}
+
+.plate-depot-code {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.72rem;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.plate-system-info {
+  display: grid;
+  gap: 1px;
+
+  font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+  font-size: 1.48rem;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 0.94;
+  white-space: nowrap;
+}
+
+.plate-date-labels {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.plate-date-values {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.plate-pem-area {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+.pem-block {
+  display: grid;
+  gap: 2px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.56rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.pem-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.pem-title-row strong {
+  font-size: 0.52rem;
+  font-weight: 900;
+}
+
+.pem-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 12px);
+  grid-template-rows: repeat(2, 12px);
+
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+}
+
+.pem-grid i {
+  display: block;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+/* Details */
+
+.code-details {
+  margin-top: 20px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.code-details p {
+  margin: 0 0 10px;
+}
+
+/* Trainmark preview */
+
+.trainmark-preview {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  width: 180px;
+  height: 180px;
+  background: #f97316;
+  color: #111111;
+  border: 4px solid #111111;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  line-height: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.trainmark-speed {
+  display: grid;
+  place-items: center;
+  padding: 12px 10px 8px;
+  font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+  font-size: 6.2rem;
+  font-weight: 900;
+}
+
+.trainmark-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 4px solid #111111;
+  font-size: 2.4rem;
+  font-weight: 900;
+  min-height: 54px;
+}
+
+.trainmark-bottom-row span {
+  display: grid;
+  place-items: center;
+  padding: 4px 0 6px;
+}
+
+.trainmark-bottom-row span:first-child {
+  border-right: 4px solid #111111;
+}
+.trainmark-result-card {
+  display: grid;
+  gap: 18px;
+}
+
+.trainmark-preview-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+}
+
+.trainmark-modal {
+  width: min(100%, 520px);
+}
+
+.trainmark-modal .trainmark-preview-wrap {
+  margin-bottom: 18px;
+}
+/* Preview modal */
+
+.preview-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.72);
+}
+
+.preview-modal {
+  width: min(100%, 1180px);
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  padding: 24px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.preview-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.preview-modal-code {
+  margin: 4px 0 0;
+  color: #4b5563;
+  font-weight: 700;
+}
+
+.preview-modal-plate {
+  overflow-x: auto;
+  margin-bottom: 18px;
+}
+
+.modal-close-button {
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 10px 16px;
+  background: #ffffff;
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.modal-close-button:hover {
+  background: #f3f4f6;
+}
+/* Locomotive plate preview */
+
+.locomotive-plate-scroll-area {
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px 0 6px;
+  text-align: center;
+}
+
+.locomotive-plate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+
+  width: auto;
+  min-width: 0;
+  height: 116px;
+  margin: 0 auto;
+  padding: 0 22px;
+
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #111111;
+  border-radius: 0;
+
+  font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.locomotive-axle-code,
+.locomotive-series-code,
+.locomotive-year-code,
+.locomotive-unit-code {
+  display: inline-block;
+  font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+  font-size: 5.8rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+
+/* small visual tuning between groups */
+.locomotive-series-code {
+  margin-left: 2px;
+}
+
+.locomotive-year-code {
+  margin-left: 4px;
+}
+
+.locomotive-unit-code {
+  margin-left: 2px;
+}
+/* Old locomotive plate preview */
+
+.old-locomotive-plate-scroll-area {
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px 0 6px;
+  text-align: center;
+}
+
+.old-locomotive-plate-shell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 6px;
+
+  background: #c9c4ba;
+  border: 2px solid #3a3936;
+  border-radius: 18px;
+  box-sizing: border-box;
+}
+
+.old-locomotive-plate-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+  min-height: 92px;
+  padding: 0 22px;
+
+  background: #111313;
+  border: 1px solid #232323;
+  border-radius: 12px;
+  box-sizing: border-box;
+
+  font-family: "NishaLocoplate", Arial, Helvetica, sans-serif;
+  color: #d8d3c8;
+  white-space: nowrap;
+}
+
+.old-locomotive-axle-code,
+.old-locomotive-series-code,
+.old-locomotive-unit-code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "NishaLocoplate", Arial, Helvetica, sans-serif;
+  font-size: 5.95rem;
+  line-height: 0.9;
+  letter-spacing: 0.015em;
+  text-align: center;
+
+  transform: translateY(7px);
+}
+
+.old-locomotive-series-code {
+  margin-left: 2px;
+}
+
+.old-locomotive-unit-code {
+  margin-left: 2px;
+}
+/* Responsive */
+
+@media (max-width: 820px) {
+  .generator-layout,
+  .tool-switcher {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 980px) {
+  .result-card {
+    overflow-x: auto;
+  }
+}
